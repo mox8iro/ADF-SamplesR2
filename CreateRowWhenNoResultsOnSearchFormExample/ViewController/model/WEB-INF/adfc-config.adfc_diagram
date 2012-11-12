@@ -1,0 +1,47 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <View
+      id="View8">
+      <property
+         name="activityId">main</property>
+      <property
+         name="page">/main.jspx</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>main&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">36.867188</property>
+      <property
+         name="x">337.0</property>
+   </View>
+   <TaskFlowCall
+      id="TaskFlowCall6">
+      <property
+         name="taskFlowId">task-flow-definition</property>
+      <property
+         name="activityId">task-flow-definition</property>
+      <property
+         name="documentReference">/WEB-INF/task-flow-definition.xml</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>task-flow-definition&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">-7.6992188</property>
+      <property
+         name="x">746.2207</property>
+   </TaskFlowCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase7"
+      from="View8"
+      to="TaskFlowCall6">
+      <property
+         name="fromOutcome">goRegions</property>
+      <property
+         name="sdm:polyPoints">R50,378.0,36.80078,705.2207,-7.765625,L50</property>
+   </ControlFlowCase>
+</SDM>

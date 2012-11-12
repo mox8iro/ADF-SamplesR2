@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <view id="main">
+    <page>/main.jspx</page>
+  </view>
+  <task-flow-call id="task-flow-definition">
+    <task-flow-reference>
+      <document>/WEB-INF/task-flow-definition.xml</document>
+      <id>task-flow-definition</id>
+    </task-flow-reference>
+  </task-flow-call>
+  <control-flow-rule id="__4">
+    <from-activity-id>main</from-activity-id>
+    <control-flow-case id="__5">
+      <from-outcome>goTest</from-outcome>
+      <to-activity-id>task-flow-definition</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <managed-bean id="__2">
+    <managed-bean-name>templateBean</managed-bean-name>
+    <managed-bean-class>gr.dim.stas.view.TemplateBean</managed-bean-class>
+    <managed-bean-scope>view</managed-bean-scope>
+  </managed-bean>
+</adfc-config>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.60.81"
+                id="task_flow_definition_task_flow_definition_ExecutePageDef" Package="gr.dim.stas.view.pageDefs"
+                SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="RegionsView1" RangeSize="25" DataControl="HRModuleDataControl" id="RegionsView1Iterator"
+              Refresh="never"/>
+  </executables>
+  <bindings>
+    <action IterBinding="RegionsView1Iterator" id="Execute" RequiresUpdateModel="true" Action="iteratorExecute"/>
+  </bindings>
+</pageDefinition>

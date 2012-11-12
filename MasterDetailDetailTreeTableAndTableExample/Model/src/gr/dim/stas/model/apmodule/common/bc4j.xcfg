@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BC4JConfig version="11.1" xmlns="http://xmlns.oracle.com/bc4j/configuration">
+   <AppModuleConfigBag ApplicationName="gr.dim.stas.model.apmodule.HRModule">
+      <AppModuleConfig name="HRModuleLocal" jbo.project="gr.dim.stas.model.Model" ApplicationName="gr.dim.stas.model.apmodule.HRModule" DeployPlatform="LOCAL">
+         <Database jbo.TypeMapEntries="OracleApps"/>
+         <Security AppModuleJndiName="gr.dim.stas.model.apmodule.HRModule"/>
+         <Custom JDBCDataSource="java:comp/env/jdbc/HRDS"/>
+      </AppModuleConfig>
+      <AppModuleConfig name="HRModuleShared" jbo.project="gr.dim.stas.model.Model" ApplicationName="gr.dim.stas.model.apmodule.HRModule" DeployPlatform="LOCAL">
+         <AM-Pooling jbo.ampool.maxpoolsize="1" jbo.ampool.isuseexclusive="false"/>
+         <Database jbo.TypeMapEntries="OracleApps"/>
+         <Security AppModuleJndiName="gr.dim.stas.model.apmodule.HRModule"/>
+         <Custom JDBCDataSource="java:comp/env/jdbc/HRDS"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+</BC4JConfig>

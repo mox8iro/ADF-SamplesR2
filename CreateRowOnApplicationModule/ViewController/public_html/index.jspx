@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <f:view>
+        <af:document title="index.jspx" id="d1">
+            <af:messages id="m1"/>
+            <af:form id="f1">
+                <af:pageTemplate viewId="/oracle/templates/threeColumnTemplate.jspx" id="pt1">
+                    <f:facet name="center">
+                        <af:panelFormLayout id="pfl1">
+                            <af:inputText value="#{bindings.DepartmentId.inputValue}"
+                                          label="#{bindings.DepartmentId.hints.label}"
+                                          required="#{bindings.DepartmentId.hints.mandatory}"
+                                          columns="#{bindings.DepartmentId.hints.displayWidth}"
+                                          maximumLength="#{bindings.DepartmentId.hints.precision}"
+                                          shortDesc="#{bindings.DepartmentId.hints.tooltip}" id="it1">
+                                <f:validator binding="#{bindings.DepartmentId.validator}"/>
+                                <af:convertNumber groupingUsed="false" pattern="#{bindings.DepartmentId.format}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.DepartmentName.inputValue}"
+                                          label="#{bindings.DepartmentName.hints.label}"
+                                          required="#{bindings.DepartmentName.hints.mandatory}"
+                                          columns="#{bindings.DepartmentName.hints.displayWidth}"
+                                          maximumLength="#{bindings.DepartmentName.hints.precision}"
+                                          shortDesc="#{bindings.DepartmentName.hints.tooltip}" id="it2">
+                                <f:validator binding="#{bindings.DepartmentName.validator}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.ManagerId.inputValue}"
+                                          label="#{bindings.ManagerId.hints.label}"
+                                          required="#{bindings.ManagerId.hints.mandatory}"
+                                          columns="#{bindings.ManagerId.hints.displayWidth}"
+                                          maximumLength="#{bindings.ManagerId.hints.precision}"
+                                          shortDesc="#{bindings.ManagerId.hints.tooltip}" id="it3">
+                                <f:validator binding="#{bindings.ManagerId.validator}"/>
+                                <af:convertNumber groupingUsed="false" pattern="#{bindings.ManagerId.format}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.LocationId.inputValue}"
+                                          label="#{bindings.LocationId.hints.label}"
+                                          required="#{bindings.LocationId.hints.mandatory}"
+                                          columns="#{bindings.LocationId.hints.displayWidth}"
+                                          maximumLength="#{bindings.LocationId.hints.precision}"
+                                          shortDesc="#{bindings.LocationId.hints.tooltip}" id="it4">
+                                <f:validator binding="#{bindings.LocationId.validator}"/>
+                                <af:convertNumber groupingUsed="false" pattern="#{bindings.LocationId.format}"/>
+                            </af:inputText>
+                            <af:commandButton actionListener="#{bindings.createNewRowOnDepts.execute}"
+                                              text="createNewRowOnDepts"
+                                              disabled="#{!bindings.createNewRowOnDepts.enabled}" id="cb1"/>
+                        </af:panelFormLayout>
+                    </f:facet>
+                    <f:facet name="header"/>
+                    <f:facet name="end"/>
+                    <f:facet name="start"/>
+                    <f:facet name="branding"/>
+                    <f:facet name="copyright"/>
+                    <f:facet name="status"/>
+                </af:pageTemplate>
+            </af:form>
+        </af:document>
+    </f:view>
+</jsp:root>

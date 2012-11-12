@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <af:pageTemplateDef var="attrs" definition="private">
+        <af:xmlContent>
+            <component xmlns="http://xmlns.oracle.com/adf/faces/rich/component">
+                <display-name>templateDef1</display-name>
+                <facet>
+                    <facet-name>
+                        center
+                    </facet-name>
+                </facet>
+                <facet>
+                    <facet-name>
+                        start
+                    </facet-name>
+                </facet>
+                <facet>
+                    <facet-name>
+                        end
+                    </facet-name>
+                </facet>
+            </component>
+        </af:xmlContent>
+        <af:panelSplitter orientation="vertical" splitterPosition="50" id="pt_ps2">
+            <f:facet name="first">
+                <af:menuBar id="pt_mb1">
+                    <af:menu text="menu 1" id="pt_m1" binding="#{viewScope.templateBean.menu1B}">
+                        <af:commandMenuItem text="commandMenuItem 1" id="pt_cmi1"/>
+                        <af:commandMenuItem text="commandMenuItem 2" id="pt_cmi2"/>
+                        <af:commandMenuItem text="commandMenuItem 3" id="pt_cmi3"/>
+                    </af:menu>
+                    <af:menu text="menu 2" id="pt_m2" binding="#{viewScope.templateBean.menu2B}">
+                        <af:commandMenuItem text="commandMenuItem 4" id="pt_cmi4"/>
+                        <af:commandMenuItem text="commandMenuItem 5" id="pt_cmi5"/>
+                        <af:commandMenuItem text="commandMenuItem 6" id="pt_cmi6"/>
+                    </af:menu>
+                    <af:menu text="menu 3" id="pt_m3" binding="#{viewScope.templateBean.menu3B}">
+                        <af:commandMenuItem text="commandMenuItem 7" id="pt_cmi7"/>
+                        <af:commandMenuItem text="commandMenuItem 8" id="pt_cmi8"/>
+                        <af:commandMenuItem text="commandMenuItem 9" id="pt_cmi9"/>
+                    </af:menu>
+                    <af:menu text="menu 4" id="pt_m4" binding="#{viewScope.templateBean.menu4B}">
+                        <af:menu text="menu 7" id="pt_m7">
+                            <af:commandMenuItem text="commandMenuItem 11" id="pt_cmi11"/>
+                        </af:menu>
+                        <af:commandMenuItem text="commandMenuItem 10" id="pt_cmi10"/>
+                    </af:menu>
+                </af:menuBar>
+            </f:facet>
+            <f:facet name="second">
+                <af:decorativeBox theme="dark" id="pt_db3">
+                    <f:facet name="center">
+                        <af:decorativeBox theme="medium" id="pt_db1">
+                            <f:facet name="center">
+                                <af:panelSplitter orientation="horizontal" splitterPosition="100" id="pt_ps3">
+                                    <f:facet name="first">
+                                        <af:facetRef facetName="start"/>
+                                    </f:facet>
+                                    <f:facet name="second">
+                                        <af:panelSplitter orientation="horizontal" splitterPosition="100"
+                                                          positionedFromEnd="true" id="pt_ps1">
+                                            <f:facet name="first">
+                                                <af:decorativeBox theme="default" id="pt_db2">
+                                                    <f:facet name="center">
+                                                        <af:facetRef facetName="center"/>
+                                                    </f:facet>
+                                                </af:decorativeBox>
+                                            </f:facet>
+                                            <f:facet name="second">
+                                                <af:facetRef facetName="end"/>
+                                            </f:facet>
+                                        </af:panelSplitter>
+                                    </f:facet>
+                                </af:panelSplitter>
+                            </f:facet>
+                        </af:decorativeBox>
+                    </f:facet>
+                </af:decorativeBox>
+            </f:facet>
+        </af:panelSplitter>
+    </af:pageTemplateDef>
+</jsp:root>

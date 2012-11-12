@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.60.81" id="indexPageDef"
+                Package="gr.dim.stas.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <taskFlow id="DepartmentsCRUDBTF1" taskFlowId="/WEB-INF/DepartmentsCRUDBTF.xml#DepartmentsCRUDBTF"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="EmpsBTF1" taskFlowId="/WEB-INF/EmpsBTF.xml#EmpsBTF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"
+              RefreshCondition="#{bindings.DepartmentsCRUDBTF1.refreshed}"/>
+  </executables>
+  <bindings/>
+</pageDefinition>

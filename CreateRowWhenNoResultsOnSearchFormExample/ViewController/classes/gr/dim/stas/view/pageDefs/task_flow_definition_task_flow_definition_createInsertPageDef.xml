@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.60.81"
+                id="task_flow_definition_task_flow_definition_createInsertPageDef" Package="gr.dim.stas.view.pageDefs"
+                SkipValidation="true">
+  <parameters/>
+  <executables/>
+  <bindings>
+    <action id="createInsert" RequiresUpdateModel="true" Action="invokeMethod" MethodName="createInsert"
+            IsViewObjectMethod="false" DataControl="HRModuleDataControl"
+            InstanceName="data.HRModuleDataControl.dataProvider"/>
+  </bindings>
+</pageDefinition>

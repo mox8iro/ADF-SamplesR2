@@ -1,0 +1,168 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <f:view>
+        <af:document title="index.jspx" id="d1">
+            <af:messages id="m1"/>
+            <af:form id="f1">
+                <af:pageTemplate viewId="/oracle/templates/threeColumnTemplate.jspx" id="pt1">
+                    <f:facet name="center">
+                        <af:panelGroupLayout id="pgl1" layout="scroll">
+                            <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+                                <f:facet name="menus"/>
+                                <f:facet name="toolbar"/>
+                                <f:facet name="statusbar"/>
+                                <af:treeTable value="#{bindings.DepartmentsView.treeModel}" var="node"
+                                              selectionListener="#{bindings.DepartmentsView.treeModel.makeCurrent}"
+                                              rowSelection="single" id="tt1">
+                                    <f:facet name="nodeStamp">
+                                        <af:column id="c1">
+                                            <af:outputText value="#{node}" id="ot1"/>
+                                        </af:column>
+                                    </f:facet>
+                                    <f:facet name="pathStamp">
+                                        <af:outputText value="#{node}" id="ot2"/>
+                                    </f:facet>
+                                    <af:column id="c2">
+                                        <af:outputText value="#{node.EmployeeId}" id="ot3"/>
+                                    </af:column>
+                                    <af:column id="c3">
+                                        <af:outputText value="#{node.LastName}" id="ot4"/>
+                                    </af:column>
+                                    <af:column id="c4">
+                                        <af:outputText value="#{node.FirstName}" id="ot5"/>
+                                    </af:column>
+                                </af:treeTable>
+                            </af:panelCollection>
+                            <af:panelCollection id="pc2">
+                                <f:facet name="menus"/>
+                                <f:facet name="toolbar"/>
+                                <f:facet name="statusbar"/>
+                                <af:table value="#{bindings.EmpDetailsViewView.collectionModel}" var="row"
+                                          rows="#{bindings.EmpDetailsViewView.rangeSize}"
+                                          emptyText="#{bindings.EmpDetailsViewView.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                          fetchSize="#{bindings.EmpDetailsViewView.rangeSize}" rowBandingInterval="0"
+                                          selectedRowKeys="#{bindings.EmpDetailsViewView.collectionModel.selectedRow}"
+                                          selectionListener="#{bindings.EmpDetailsViewView.collectionModel.makeCurrent}"
+                                          rowSelection="single" id="t1" partialTriggers=":::pc1:tt1">
+                                    <af:column sortProperty="#{bindings.EmpDetailsViewView.hints.EmployeeId.name}"
+                                               sortable="false"
+                                               headerText="#{bindings.EmpDetailsViewView.hints.EmployeeId.label}"
+                                               id="c5">
+                                        <af:outputText value="#{row.EmployeeId}" id="ot6">
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.EmpDetailsViewView.hints.EmployeeId.format}"/>
+                                        </af:outputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.EmpDetailsViewView.hints.JobId.name}"
+                                               sortable="false"
+                                               headerText="#{bindings.EmpDetailsViewView.hints.JobId.label}" id="c6">
+                                        <af:outputText value="#{row.JobId}" id="ot7"/>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.EmpDetailsViewView.hints.ManagerId.name}"
+                                               sortable="false"
+                                               headerText="#{bindings.EmpDetailsViewView.hints.ManagerId.label}"
+                                               id="c7">
+                                        <af:outputText value="#{row.ManagerId}" id="ot8">
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.EmpDetailsViewView.hints.ManagerId.format}"/>
+                                        </af:outputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.EmpDetailsViewView.hints.DepartmentId.name}"
+                                               sortable="false"
+                                               headerText="#{bindings.EmpDetailsViewView.hints.DepartmentId.label}"
+                                               id="c8">
+                                        <af:outputText value="#{row.DepartmentId}" id="ot9">
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.EmpDetailsViewView.hints.DepartmentId.format}"/>
+                                        </af:outputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.EmpDetailsViewView.hints.LocationId.name}"
+                                               sortable="false"
+                                               headerText="#{bindings.EmpDetailsViewView.hints.LocationId.label}"
+                                               id="c9">
+                                        <af:outputText value="#{row.LocationId}" id="ot10">
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.EmpDetailsViewView.hints.LocationId.format}"/>
+                                        </af:outputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.EmpDetailsViewView.hints.CountryId.name}"
+                                               sortable="false"
+                                               headerText="#{bindings.EmpDetailsViewView.hints.CountryId.label}"
+                                               id="c10">
+                                        <af:outputText value="#{row.CountryId}" id="ot11"/>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.EmpDetailsViewView.hints.FirstName.name}"
+                                               sortable="false"
+                                               headerText="#{bindings.EmpDetailsViewView.hints.FirstName.label}"
+                                               id="c11">
+                                        <af:outputText value="#{row.FirstName}" id="ot12"/>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.EmpDetailsViewView.hints.LastName.name}"
+                                               sortable="false"
+                                               headerText="#{bindings.EmpDetailsViewView.hints.LastName.label}"
+                                               id="c12">
+                                        <af:outputText value="#{row.LastName}" id="ot13"/>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.EmpDetailsViewView.hints.Salary.name}"
+                                               sortable="false"
+                                               headerText="#{bindings.EmpDetailsViewView.hints.Salary.label}" id="c13">
+                                        <af:outputText value="#{row.Salary}" id="ot14"/>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.EmpDetailsViewView.hints.CommissionPct.name}"
+                                               sortable="false"
+                                               headerText="#{bindings.EmpDetailsViewView.hints.CommissionPct.label}"
+                                               id="c14">
+                                        <af:outputText value="#{row.CommissionPct}" id="ot15"/>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.EmpDetailsViewView.hints.DepartmentName.name}"
+                                               sortable="false"
+                                               headerText="#{bindings.EmpDetailsViewView.hints.DepartmentName.label}"
+                                               id="c15">
+                                        <af:outputText value="#{row.DepartmentName}" id="ot16"/>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.EmpDetailsViewView.hints.JobTitle.name}"
+                                               sortable="false"
+                                               headerText="#{bindings.EmpDetailsViewView.hints.JobTitle.label}"
+                                               id="c16">
+                                        <af:outputText value="#{row.JobTitle}" id="ot17"/>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.EmpDetailsViewView.hints.City.name}"
+                                               sortable="false"
+                                               headerText="#{bindings.EmpDetailsViewView.hints.City.label}" id="c17">
+                                        <af:outputText value="#{row.City}" id="ot18"/>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.EmpDetailsViewView.hints.StateProvince.name}"
+                                               sortable="false"
+                                               headerText="#{bindings.EmpDetailsViewView.hints.StateProvince.label}"
+                                               id="c18">
+                                        <af:outputText value="#{row.StateProvince}" id="ot19"/>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.EmpDetailsViewView.hints.CountryName.name}"
+                                               sortable="false"
+                                               headerText="#{bindings.EmpDetailsViewView.hints.CountryName.label}"
+                                               id="c19">
+                                        <af:outputText value="#{row.CountryName}" id="ot20"/>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.EmpDetailsViewView.hints.RegionName.name}"
+                                               sortable="false"
+                                               headerText="#{bindings.EmpDetailsViewView.hints.RegionName.label}"
+                                               id="c20">
+                                        <af:outputText value="#{row.RegionName}" id="ot21"/>
+                                    </af:column>
+                                </af:table>
+                            </af:panelCollection>
+                        </af:panelGroupLayout>
+                    </f:facet>
+                    <f:facet name="header"/>
+                    <f:facet name="end"/>
+                    <f:facet name="start"/>
+                    <f:facet name="branding"/>
+                    <f:facet name="copyright"/>
+                    <f:facet name="status"/>
+                </af:pageTemplate>
+            </af:form>
+        </af:document>
+    </f:view>
+</jsp:root>

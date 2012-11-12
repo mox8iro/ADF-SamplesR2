@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="FromEmployeesToEmployeesDetailLink"
+  Version="11.1.2.60.81"
+  EntityAssociation="gr.dim.stas.model.entities.assocs.FromEmployeestoEmployeesViewDetailsAssoc">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="gr.dim.stas.model.views.viewlinks.FromEmployeesToEmployeesDetailLink_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewLinkDefEnd
+    Name="EmployeesView"
+    Cardinality="1"
+    Source="true"
+    Owner="gr.dim.stas.model.views.EmployeesView">
+    <DesignTime>
+      <Attr Name="_accessor" Value="true"/>
+      <Attr Name="_finderName" Value="EmployeesView"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_minCardinality" Value="1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="gr.dim.stas.model.views.EmployeesView.EmployeeId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="EmpDetailsViewView"
+    Cardinality="-1"
+    Owner="gr.dim.stas.model.views.EmpDetailsViewView">
+    <DesignTime>
+      <Attr Name="_finderName" Value="EmpDetailsViewView"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="gr.dim.stas.model.views.EmpDetailsViewView.EmployeeId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="gr.dim.stas.model.ModelBundle"/>
+  </ResourceBundle>
+</ViewLink>

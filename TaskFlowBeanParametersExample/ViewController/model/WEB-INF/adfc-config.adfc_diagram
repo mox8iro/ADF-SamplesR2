@@ -1,0 +1,47 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <View
+      id="View2">
+      <property
+         name="activityId">main</property>
+      <property
+         name="page">/main.jspx</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>main&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">133.29883</property>
+      <property
+         name="x">141.0</property>
+   </View>
+   <TaskFlowCall
+      id="TaskFlowCall3">
+      <property
+         name="taskFlowId">task-flow-definition</property>
+      <property
+         name="activityId">task-flow-definition</property>
+      <property
+         name="documentReference">/WEB-INF/task-flow-definition.xml</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>task-flow-definition&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">137.0166</property>
+      <property
+         name="x">716.6875</property>
+   </TaskFlowCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase4"
+      from="View2"
+      to="TaskFlowCall3">
+      <property
+         name="fromOutcome">goTest</property>
+      <property
+         name="sdm:polyPoints">R50,182.0,133.23242,675.6875,136.9502,L50</property>
+   </ControlFlowCase>
+</SDM>

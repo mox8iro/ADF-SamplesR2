@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="x-MacGreek" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="task-flow-definition">
+    <default-activity>index</default-activity>
+    <view id="index">
+      <page>/index.jspx</page>
+    </view>
+  </task-flow-definition>
+</adfc-config>

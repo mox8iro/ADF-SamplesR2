@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+         >
+         
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1">
+      <af:messages id="m1"/>
+      <af:form id="f1">
+        <af:panelTabbed id="pt1" styleClass="AFStretchWidth"
+                        inlineStyle="height:800.0px;">
+          <af:showDetailItem text="The Horizontal Way" id="sdi1"
+                             >
+            <af:panelGroupLayout id="pgl4" layout="scroll"
+                                 >
+              <table align="center" width="97%" border="2">
+                <tbody>
+                  <tr>
+                    <af:iterator var="depRow"
+                                 value="#{bindings.DepartmentsView1.collectionModel}"
+                                 id="id1" rows="1">
+                      <th bgcolor="Gray">
+                        <af:inputText value="#{depRow.bindings.DepartmentId.label}"
+                                       id="contractorHeader"
+                                       readOnly="true"
+                                       inlineStyle="font-weight:bold;"/>
+                      </th>
+                      <th bgcolor="Gray">
+                        <af:inputText value="#{depRow.bindings.DepartmentName.label}"
+                                       id="activityHeader"
+                                       readOnly="true"
+                                       inlineStyle="font-weight:bold;"/>
+                      </th>
+                      
+                      <af:iterator var="empRow"
+                                   value="#{depRow.children}"
+                                   id="iterator2" rows="2">
+                        <th bgcolor="Gray" >
+                          <af:inputText value="#{empRow.bindings.FirstName.label}"
+                                         id="amountClaimedHeader"
+                                         readOnly="true"
+                                         inlineStyle="font-weight:bold;"/>
+                        </th>
+                        <th bgcolor="Gray">
+                          <af:inputText value="#{empRow.bindings.LastName.label}"
+                                         id="sufficExplainedHeader"
+                                         readOnly="true"
+                                         inlineStyle="font-weight:bold;"/>
+                        </th>
+                       
+                      </af:iterator>
+                    </af:iterator>
+                  </tr>
+                  <af:iterator var="depRowData"
+                               value="#{bindings.DepartmentsView1.collectionModel}"
+                               id="i1" rows="0">
+                    <tr>
+                      <td>
+                        <af:inputText id="its1" value="#{depRowData.departmentId}"
+                                      readOnly="true"/>
+                      </td>
+                      <td>
+                        <af:inputText id="itds1"
+                                      value="#{depRowData.departmentName}"
+                                      readOnly="true"/>
+                      </td>
+                      <af:iterator var="empRowData"
+                                   value="#{depRowData.children}"
+                                   id="iterator1" rows="2">
+                        <td>
+                          <af:inputText label="first Name" id="inputText1"
+                                        value="#{empRowData.firstName}"
+                                        simple="true"
+                                        readOnly="#{depRowData.departmentId eq '100'}"/>
+                        </td>
+                        <td>
+                        
+                                       <af:inputText value="#{empRowData.lastName}"
+                                                       simple="true"
+                                                      id="inputText2"
+                                                       autoSubmit="true" >
+                          
+                          </af:inputText>
+                        </td>
+                      </af:iterator>
+                    </tr>
+                  </af:iterator>
+                </tbody>
+              </table>
+            </af:panelGroupLayout>
+          </af:showDetailItem>
+        </af:panelTabbed>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

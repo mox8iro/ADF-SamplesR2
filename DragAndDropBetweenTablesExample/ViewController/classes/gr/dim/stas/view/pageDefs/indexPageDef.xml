@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.60.81" id="indexPageDef"
+                Package="gr.dim.stas.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+     <iterator Binds="DepartmentsViewLeft" RangeSize="25" DataControl="HRModuleDataControl" id="DepartmentsView1Iterator"
+              ChangeEventPolicy="ppr"/>
+    <iterator Binds="EmployeesViewLeft" RangeSize="25" DataControl="HRModuleDataControl" id="EmployeesView3Iterator"
+              ChangeEventPolicy="ppr"/>
+    <iterator Binds="DepartmentsViewRight" RangeSize="25" DataControl="HRModuleDataControl"
+              id="DepartmentsViewRightIterator" ChangeEventPolicy="ppr"/>
+    <iterator Binds="EmployeesViewRight" RangeSize="25" DataControl="HRModuleDataControl"
+              id="EmployeesViewRightIterator" ChangeEventPolicy="ppr"/>
+  </executables>
+  <bindings>
+    <action IterBinding="DepartmentsView1Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="DepartmentsView1Iterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="DepartmentsView1Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="DepartmentsView1Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <attributeValues IterBinding="DepartmentsView1Iterator" id="DepartmentId">
+      <AttrNames>
+        <Item Value="DepartmentId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DepartmentsView1Iterator" id="DepartmentName">
+      <AttrNames>
+        <Item Value="DepartmentName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DepartmentsView1Iterator" id="ManagerId">
+      <AttrNames>
+        <Item Value="ManagerId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DepartmentsView1Iterator" id="LocationId">
+      <AttrNames>
+        <Item Value="LocationId"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="EmployeesView3Iterator" id="EmployeesView3">
+      <nodeDefinition DefName="gr.dim.stas.model.views.EmployeesView" Name="EmployeesView30">
+        <AttrNames>
+          <Item Value="EmployeeId"/>
+          <Item Value="FirstName"/>
+          <Item Value="LastName"/>
+          <Item Value="Email"/>
+          <Item Value="PhoneNumber"/>
+          <Item Value="HireDate"/>
+          <Item Value="JobId"/>
+          <Item Value="Salary"/>
+          <Item Value="CommissionPct"/>
+          <Item Value="ManagerId"/>
+          <Item Value="DepartmentId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="DepartmentsViewRightIterator" id="First2" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="DepartmentsViewRightIterator" id="Previous2" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="DepartmentsViewRightIterator" id="Next2" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="DepartmentsViewRightIterator" id="Last2" RequiresUpdateModel="true" Action="last"/>
+    <attributeValues IterBinding="DepartmentsViewRightIterator" id="DepartmentId2">
+      <AttrNames>
+        <Item Value="DepartmentId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DepartmentsViewRightIterator" id="DepartmentName2">
+      <AttrNames>
+        <Item Value="DepartmentName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DepartmentsViewRightIterator" id="ManagerId2">
+      <AttrNames>
+        <Item Value="ManagerId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DepartmentsViewRightIterator" id="LocationId2">
+      <AttrNames>
+        <Item Value="LocationId"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="EmployeesViewRightIterator" id="EmployeesViewRight">
+      <nodeDefinition DefName="gr.dim.stas.model.views.EmployeesView" Name="EmployeesViewRight0">
+        <AttrNames>
+          <Item Value="EmployeeId"/>
+          <Item Value="FirstName"/>
+          <Item Value="LastName"/>
+          <Item Value="Email"/>
+          <Item Value="PhoneNumber"/>
+          <Item Value="HireDate"/>
+          <Item Value="JobId"/>
+          <Item Value="Salary"/>
+          <Item Value="CommissionPct"/>
+          <Item Value="ManagerId"/>
+          <Item Value="DepartmentId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="HRModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="HRModuleDataControl"/>
+    <methodAction id="executeEmpsLeft" InstanceName="data.HRModuleDataControl.dataProvider"
+                  DataControl="HRModuleDataControl" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="executeEmpsLeft" IsViewObjectMethod="false"
+                  ReturnName="data.HRModuleDataControl.methodResults.executeEmpsLeft_HRModuleDataControl_dataProvider_executeEmpsLeft_result"/>
+    <methodAction id="executeEmpsRight" InstanceName="data.HRModuleDataControl.dataProvider"
+                  DataControl="HRModuleDataControl" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="executeEmpsRight" IsViewObjectMethod="false"
+                  ReturnName="data.HRModuleDataControl.methodResults.executeEmpsRight_HRModuleDataControl_dataProvider_executeEmpsRight_result"/>
+  </bindings>
+</pageDefinition>

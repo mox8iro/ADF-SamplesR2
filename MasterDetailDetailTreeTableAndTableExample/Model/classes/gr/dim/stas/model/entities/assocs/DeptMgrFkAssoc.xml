@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="DeptMgrFkAssoc"
+  Version="11.1.2.60.81">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="Employees1"
+    Cardinality="1"
+    Source="true"
+    Owner="gr.dim.stas.model.entities.Employees">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="Employees1"/>
+      <Attr Name="_foreignKey" Value="gr.dim.stas.model.entities.Employees.EmpEmpIdPk"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="gr.dim.stas.model.entities.Employees.EmployeeId"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="Departments1"
+    Cardinality="-1"
+    Owner="gr.dim.stas.model.entities.Departments">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="Departments1"/>
+      <Attr Name="_foreignKey" Value="gr.dim.stas.model.entities.Departments.DeptMgrFk"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="gr.dim.stas.model.entities.Departments.ManagerId"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>

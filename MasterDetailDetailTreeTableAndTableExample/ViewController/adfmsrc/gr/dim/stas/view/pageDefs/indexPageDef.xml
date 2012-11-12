@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.60.81" id="indexPageDef"
+                Package="gr.dim.stas.view.pageDefs">
+  <parameters/>
+  <executables>
+    <iterator Binds="DepartmentsView" RangeSize="10" DataControl="HRModuleDataControl" id="DepartmentsViewIterator"/>
+    <iterator id="EmployeesViewIterator" Binds="EmployeesView" DataControl="HRModuleDataControl" RangeSize="25"/>
+    <iterator Binds="EmpDetailsViewView" RangeSize="10" DataControl="HRModuleDataControl"
+              id="EmpDetailsViewViewIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="DepartmentsViewIterator" id="DepartmentsView">
+      <nodeDefinition DefName="gr.dim.stas.model.views.DepartmentsView" Name="DepartmentsView0">
+        <AttrNames>
+          <Item Value="DepartmentId"/>
+          <Item Value="DepartmentName"/>
+        </AttrNames>
+        <Accessors>
+          <Item Value="EmployeesView"/>
+        </Accessors>
+      </nodeDefinition>
+      <nodeDefinition DefName="gr.dim.stas.model.views.EmployeesView" Name="DepartmentsView1"
+                      TargetIterator="${bindings.EmployeesViewIterator}">
+        <AttrNames>
+          <Item Value="EmployeeId"/>
+          <Item Value="FirstName"/>
+          <Item Value="LastName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="EmpDetailsViewViewIterator" id="EmpDetailsViewView">
+      <nodeDefinition DefName="gr.dim.stas.model.views.EmpDetailsViewView" Name="EmpDetailsViewView0">
+        <AttrNames>
+          <Item Value="EmployeeId"/>
+          <Item Value="City"/>
+          <Item Value="CommissionPct"/>
+          <Item Value="CountryId"/>
+          <Item Value="CountryName"/>
+          <Item Value="DepartmentId"/>
+          <Item Value="DepartmentName"/>
+          <Item Value="FirstName"/>
+          <Item Value="JobId"/>
+          <Item Value="JobTitle"/>
+          <Item Value="LastName"/>
+          <Item Value="LocationId"/>
+          <Item Value="ManagerId"/>
+          <Item Value="RegionName"/>
+          <Item Value="Salary"/>
+          <Item Value="StateProvince"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

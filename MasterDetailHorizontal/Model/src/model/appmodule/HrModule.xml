@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="x-MacGreek" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="HrModule"
+  Version="11.1.2.60.17"
+  ClearCacheOnRollback="true">
+  <ViewUsage
+    Name="DepartmentsView1"
+    ViewObjectName="model.views.DepartmentsView"/>
+  <ViewUsage
+    Name="EmployeesView3"
+    ViewObjectName="model.views.EmployeesView"/>
+  <ViewLinkUsage
+    Name="EmpDeptFkLink1"
+    ViewLinkObjectName="model.views.viewlinks.EmpDeptFkLink"
+    SrcViewUsageName="model.appmodule.HrModule.DepartmentsView1"
+    DstViewUsageName="model.appmodule.HrModule.EmployeesView3"
+    Reversed="false"/>
+</AppModule>

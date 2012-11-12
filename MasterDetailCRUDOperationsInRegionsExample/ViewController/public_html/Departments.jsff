@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelHeader text="Departments" id="ph1">
+    <f:facet name="context"/>
+    <f:facet name="menuBar"/>
+    <f:facet name="toolbar"/>
+    <f:facet name="legend"/>
+    <f:facet name="info"/>
+    <af:panelFormLayout id="pfl1">
+      <af:inputText value="#{bindings.DepartmentId.inputValue}" label="#{bindings.DepartmentId.hints.label}"
+                    required="#{bindings.DepartmentId.hints.mandatory}"
+                    columns="#{bindings.DepartmentId.hints.displayWidth}"
+                    maximumLength="#{bindings.DepartmentId.hints.precision}"
+                    shortDesc="#{bindings.DepartmentId.hints.tooltip}" id="it1">
+        <f:validator binding="#{bindings.DepartmentId.validator}"/>
+        <af:convertNumber groupingUsed="false" pattern="#{bindings.DepartmentId.format}"/>
+      </af:inputText>
+      <af:inputText value="#{bindings.DepartmentName.inputValue}" label="#{bindings.DepartmentName.hints.label}"
+                    required="#{bindings.DepartmentName.hints.mandatory}"
+                    columns="#{bindings.DepartmentName.hints.displayWidth}"
+                    maximumLength="#{bindings.DepartmentName.hints.precision}"
+                    shortDesc="#{bindings.DepartmentName.hints.tooltip}" id="it2">
+        <f:validator binding="#{bindings.DepartmentName.validator}"/>
+      </af:inputText>
+      <af:inputText value="#{bindings.ManagerId.inputValue}" label="#{bindings.ManagerId.hints.label}"
+                    required="#{bindings.ManagerId.hints.mandatory}" columns="#{bindings.ManagerId.hints.displayWidth}"
+                    maximumLength="#{bindings.ManagerId.hints.precision}"
+                    shortDesc="#{bindings.ManagerId.hints.tooltip}" id="it3">
+        <f:validator binding="#{bindings.ManagerId.validator}"/>
+        <af:convertNumber groupingUsed="false" pattern="#{bindings.ManagerId.format}"/>
+      </af:inputText>
+      <af:inputText value="#{bindings.LocationId.inputValue}" label="#{bindings.LocationId.hints.label}"
+                    required="#{bindings.LocationId.hints.mandatory}"
+                    columns="#{bindings.LocationId.hints.displayWidth}"
+                    maximumLength="#{bindings.LocationId.hints.precision}"
+                    shortDesc="#{bindings.LocationId.hints.tooltip}" id="it4">
+        <f:validator binding="#{bindings.LocationId.validator}"/>
+        <af:convertNumber groupingUsed="false" pattern="#{bindings.LocationId.format}"/>
+      </af:inputText>
+      <f:facet name="footer">
+        <af:panelGroupLayout layout="vertical" id="pgl1">
+          <af:panelGroupLayout layout="horizontal" id="pgl2">
+            <f:facet name="separator">
+              <af:spacer width="10" height="1" id="s1"/>
+            </f:facet>
+            <af:commandButton actionListener="#{bindings.First.execute}" text="First"
+                              disabled="#{!bindings.First.enabled}" partialSubmit="true" id="cb1"/>
+            <af:commandButton actionListener="#{bindings.Previous.execute}" text="Previous"
+                              disabled="#{!bindings.Previous.enabled}" partialSubmit="true" id="cb2"/>
+            <af:commandButton actionListener="#{bindings.Next.execute}" text="Next" disabled="#{!bindings.Next.enabled}"
+                              partialSubmit="true" id="cb3"/>
+            <af:commandButton actionListener="#{bindings.Last.execute}" text="Last" disabled="#{!bindings.Last.enabled}"
+                              partialSubmit="true" id="cb4"/>
+          </af:panelGroupLayout>
+          <af:panelGroupLayout id="pgl3" layout="horizontal">
+            <af:commandButton text="Submit" id="cb5"/>
+            <af:commandButton actionListener="#{bindings.CreateInsert.execute}" text="CreateInsert"
+                              disabled="#{!bindings.CreateInsert.enabled}" id="cb6"/>
+            <af:commandButton actionListener="#{bindings.Delete.execute}" text="Delete"
+                              disabled="#{!bindings.Delete.enabled}" id="cb7"/>
+            <af:commandButton actionListener="#{bindings.Commit.execute}" text="Commit"
+                              disabled="#{!bindings.Commit.enabled}" id="cb8"/>
+            <af:commandButton actionListener="#{bindings.Rollback.execute}" text="Rollback"
+                              disabled="#{!bindings.Rollback.enabled}" immediate="true" id="cb9">
+              <af:resetActionListener/>
+            </af:commandButton>
+          </af:panelGroupLayout>
+        </af:panelGroupLayout>
+      </f:facet>
+    </af:panelFormLayout>
+  </af:panelHeader>
+</jsp:root>

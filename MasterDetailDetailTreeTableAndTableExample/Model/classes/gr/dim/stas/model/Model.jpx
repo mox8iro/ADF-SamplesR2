@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE JboProject SYSTEM "jbo_03_01.dtd">
+<!---->
+<JboProject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Model"
+  Version="11.1.2.60.81"
+  SeparateXMLFiles="true"
+  PackageName="gr.dim.stas.model">
+  <DesignTime>
+    <Attr Name="_jprName" Value="../../../../../Model.jpr"/>
+    <Attr Name="_jbo.TypeMapEntries" Value="OracleApps"/>
+    <Attr Name="_NamedConnection" Value="HR"/>
+    <Attr Name="_appModuleNames0" Value="gr.dim.stas.model.apmodule.HRModule"/>
+  </DesignTime>
+  <Containee
+    Name="apmodule"
+    PackageName="gr.dim.stas.model.apmodule"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_AM" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="assocs"
+    PackageName="gr.dim.stas.model.entities.assocs"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_AS" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="entities"
+    PackageName="gr.dim.stas.model.entities"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_EO" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="viewlinks"
+    PackageName="gr.dim.stas.model.views.viewlinks"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_VL" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="views"
+    PackageName="gr.dim.stas.model.views"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_VO" Value="true"/>
+    </DesignTime>
+  </Containee>
+</JboProject>

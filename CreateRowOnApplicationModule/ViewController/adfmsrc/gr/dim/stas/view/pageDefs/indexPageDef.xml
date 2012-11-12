@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.60.81" id="indexPageDef"
+                Package="gr.dim.stas.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="DepartmentsView1" RangeSize="25" DataControl="HRModuleDataControl" id="DepartmentsView1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="DepartmentsView1Iterator" id="DepartmentId">
+      <AttrNames>
+        <Item Value="DepartmentId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DepartmentsView1Iterator" id="DepartmentName">
+      <AttrNames>
+        <Item Value="DepartmentName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DepartmentsView1Iterator" id="ManagerId">
+      <AttrNames>
+        <Item Value="ManagerId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DepartmentsView1Iterator" id="LocationId">
+      <AttrNames>
+        <Item Value="LocationId"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="createNewRowOnDepts" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="createNewRowOnDepts" IsViewObjectMethod="false" DataControl="HRModuleDataControl"
+                  InstanceName="data.HRModuleDataControl.dataProvider"/>
+  </bindings>
+</pageDefinition>

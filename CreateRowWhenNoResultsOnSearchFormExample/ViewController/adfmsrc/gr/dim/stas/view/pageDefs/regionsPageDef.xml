@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.60.81" id="regionsPageDef"
+                Package="gr.dim.stas.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="RegionsView1" RangeSize="25" DataControl="HRModuleDataControl" id="RegionsView1Iterator"/>
+    <invokeAction id="invokeGAmowFind" Binds="Find" Refresh="prepareModel"
+                  RefreshCondition="#{!adfFacesContext.postback}"/>
+  </executables>
+  <bindings>
+    <action IterBinding="RegionsView1Iterator" id="Find" RequiresUpdateModel="true" Action="iteratorFind"/>
+    <attributeValues IterBinding="RegionsView1Iterator" id="RegionId">
+      <AttrNames>
+        <Item Value="RegionId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="RegionsView1Iterator" id="RegionName">
+      <AttrNames>
+        <Item Value="RegionName"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="HRModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="HRModuleDataControl"/>
+    <attributeValues IterBinding="RegionsView1Iterator" id="IsNewRow">
+      <AttrNames>
+        <Item Value="IsNewRow"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="RegionsView1Iterator" id="Execute" InstanceName="HRModuleDataControl.RegionsView1"
+            DataControl="HRModuleDataControl" RequiresUpdateModel="true" Action="iteratorExecute"/>
+    <methodAction id="createInsert" InstanceName="data.HRModuleDataControl.dataProvider"
+                  DataControl="HRModuleDataControl" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="createInsert" IsViewObjectMethod="false"
+                  ReturnName="data.HRModuleDataControl.methodResults.createInsert_HRModuleDataControl_dataProvider_createInsert_result"/>
+  </bindings>
+</pageDefinition>

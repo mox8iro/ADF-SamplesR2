@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.60.17" id="indexPageDef"
+                Package="gr.dim.stas.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="DepartmentsView1" RangeSize="10" DataControl="HrModuleDataControl" id="DepartmentsView1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="DepartmentsView1Iterator" id="DepartmentsView1">
+      <nodeDefinition DefName="model.views.DepartmentsView" Name="DepartmentsView10">
+        <AttrNames>
+          <Item Value="DepartmentId"/>
+          <Item Value="DepartmentName"/>
+          <Item Value="LocationId"/>
+          <Item Value="ManagerId"/>
+        </AttrNames>
+        <Accessors>
+          <Item Value="EmployeesView"/>
+        </Accessors>
+      </nodeDefinition>
+      <nodeDefinition DefName="model.views.EmployeesView" Name="DepartmentsView11">
+        <AttrNames>
+          <Item Value="EmployeeId"/>
+          <Item Value="CommissionPct"/>
+          <Item Value="DepartmentId"/>
+          <Item Value="Email"/>
+          <Item Value="FirstName"/>
+          <Item Value="HireDate"/>
+          <Item Value="JobId"/>
+          <Item Value="LastName"/>
+          <Item Value="ManagerId"/>
+          <Item Value="PhoneNumber"/>
+          <Item Value="Salary"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

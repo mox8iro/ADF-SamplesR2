@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="RegionsView"
+  Version="11.1.2.60.81"
+  SelectList="Regions.REGION_ID, 
+       Regions.REGION_NAME"
+  FromList="REGIONS Regions"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false"
+  ComponentClass="gr.dim.stas.model.views.RegionsViewImpl"
+  RowClass="gr.dim.stas.model.views.RegionsViewRowImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll|Prog|VarAccess"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <EntityUsage
+    Name="Regions"
+    Entity="gr.dim.stas.model.entities.Regions"/>
+  <ViewAttribute
+    Name="RegionId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="RegionId"
+    EntityUsage="Regions"
+    AliasName="REGION_ID"/>
+  <ViewAttribute
+    Name="RegionName"
+    PrecisionRule="true"
+    EntityAttrName="RegionName"
+    EntityUsage="Regions"
+    AliasName="REGION_NAME"/>
+  <ViewAttribute
+    Name="IsNewRow"
+    IsUpdateable="false"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR"/>
+</ViewObject>

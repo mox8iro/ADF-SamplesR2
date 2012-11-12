@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="HRModule"
+  Version="11.1.2.60.81"
+  ClearCacheOnRollback="true"
+  ComponentClass="gr.dim.stas.model.appmodule.HRModuleImpl"
+  ComponentInterface="gr.dim.stas.model.appmodule.common.HRModule"
+  ClientProxyName="gr.dim.stas.model.appmodule.client.HRModuleClient">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <ViewUsage
+    Name="DepartmentsViewLeft"
+    ViewObjectName="gr.dim.stas.model.views.DepartmentsView"/>
+  <ViewUsage
+    Name="EmployeesViewLeft"
+    ViewObjectName="gr.dim.stas.model.views.EmployeesView"/>
+  <ViewUsage
+    Name="DepartmentsViewRight"
+    ViewObjectName="gr.dim.stas.model.views.DepartmentsView"/>
+  <ViewUsage
+    Name="EmployeesViewRight"
+    ViewObjectName="gr.dim.stas.model.views.EmployeesView"/>
+  <ViewLinkUsage
+    Name="EmpDeptFkLinkLeft"
+    ViewLinkObjectName="gr.dim.stas.model.views.viewlinks.EmpDeptFkLink"
+    SrcViewUsageName="gr.dim.stas.model.appmodule.HRModule.DepartmentsViewLeft"
+    DstViewUsageName="gr.dim.stas.model.appmodule.HRModule.EmployeesViewLeft"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="EmpDeptFkLinkRight"
+    ViewLinkObjectName="gr.dim.stas.model.views.viewlinks.EmpDeptFkLink"
+    SrcViewUsageName="gr.dim.stas.model.appmodule.HRModule.DepartmentsViewRight"
+    DstViewUsageName="gr.dim.stas.model.appmodule.HRModule.EmployeesViewRight"
+    Reversed="false"/>
+  <ClientInterface>
+    <Method
+      Name="executeEmpsLeft"
+      MethodName="executeEmpsLeft">
+      <Return
+        Type="void"/>
+    </Method>
+    <Method
+      Name="executeEmpsRight"
+      MethodName="executeEmpsRight">
+      <Return
+        Type="void"/>
+    </Method>
+  </ClientInterface>
+</AppModule>

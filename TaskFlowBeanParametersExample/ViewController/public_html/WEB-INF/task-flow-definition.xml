@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="task-flow-definition">
+    <default-activity>index</default-activity>
+    <data-control-scope>
+      <isolated/>
+    </data-control-scope>
+    <managed-bean id="__1">
+      <managed-bean-name>aRequestBean</managed-bean-name>
+      <managed-bean-class>gr.dim.stas.view.ARequestBean</managed-bean-class>
+      <managed-bean-scope>request</managed-bean-scope>
+      <managed-property id="__5">
+        <property-name>myTemplateBean</property-name>
+        <property-class>gr.dim.stas.view.TemplateBean</property-class>
+        <value>#{viewScope.templateBean}</value>
+      </managed-property>
+    </managed-bean>
+    <managed-bean id="__2">
+      <managed-bean-name>templateBean</managed-bean-name>
+      <managed-bean-class>gr.dim.stas.view.TemplateBean</managed-bean-class>
+      <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
+    <view id="index">
+      <page>/index.jspx</page>
+    </view>
+  </task-flow-definition>
+</adfc-config>
