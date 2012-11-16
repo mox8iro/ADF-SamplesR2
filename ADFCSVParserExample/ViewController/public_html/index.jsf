@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="index.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1" usesUpload="true">
+            <af:pageTemplate viewId="/oracle/templates/threeColumnTemplate.jspx" id="pt1">
+                <f:facet name="center">
+                    <af:panelCollection id="pc1">
+                        <f:facet name="menus"/>
+                        <f:facet name="toolbar">
+                            <af:toolbar id="t2">
+                                <af:inputFile label="upload csv" id="if1"
+                                              valueChangeListener="#{UploadBean.fileUploadValueChangeListener}"
+                                              autoSubmit="true"/>
+                                <af:commandToolbarButton actionListener="#{bindings.Commit.execute}" text="Commit"
+                                                         disabled="#{!bindings.Commit.enabled}" id="ctb1"/>
+                                <af:commandToolbarButton actionListener="#{bindings.Delete.execute}" text="Delete"
+                                                         disabled="#{!bindings.Delete.enabled}" id="ctb2"/>
+                                <af:commandToolbarButton actionListener="#{bindings.Rollback.execute}" text="Rollback"
+                                                         disabled="#{!bindings.Rollback.enabled}" immediate="true"
+                                                         id="ctb3">
+                                    <af:resetActionListener/>
+                                </af:commandToolbarButton>
+                            </af:toolbar>
+                        </f:facet>
+                        <f:facet name="statusbar"/>
+                        <af:table value="#{bindings.CountriesView1.collectionModel}" var="row"
+                                  rows="#{bindings.CountriesView1.rangeSize}"
+                                  emptyText="#{bindings.CountriesView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  fetchSize="#{bindings.CountriesView1.rangeSize}" rowBandingInterval="0"
+                                  selectedRowKeys="#{bindings.CountriesView1.collectionModel.selectedRow}"
+                                  selectionListener="#{bindings.CountriesView1.collectionModel.makeCurrent}"
+                                  rowSelection="single" id="t1" partialTriggers="::if1 ::ctb2">
+                            <af:column sortProperty="#{bindings.CountriesView1.hints.CountryId.name}" sortable="false"
+                                       headerText="#{bindings.CountriesView1.hints.CountryId.label}" id="c1">
+                                <af:outputText value="#{row.CountryId}" id="ot1"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.CountriesView1.hints.CountryName.name}" sortable="false"
+                                       headerText="#{bindings.CountriesView1.hints.CountryName.label}" id="c2">
+                                <af:outputText value="#{row.CountryName}" id="ot2"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.CountriesView1.hints.RegionId.name}" sortable="false"
+                                       headerText="#{bindings.CountriesView1.hints.RegionId.label}" id="c3">
+                                <af:outputText value="#{row.RegionId}" id="ot3"/>
+                            </af:column>
+                        </af:table>
+                    </af:panelCollection>
+                </f:facet>
+                <f:facet name="header"/>
+                <f:facet name="end"/>
+                <f:facet name="start"/>
+                <f:facet name="branding"/>
+                <f:facet name="copyright"/>
+                <f:facet name="status"/>
+            </af:pageTemplate>
+        </af:form>
+    </af:document>
+</f:view>

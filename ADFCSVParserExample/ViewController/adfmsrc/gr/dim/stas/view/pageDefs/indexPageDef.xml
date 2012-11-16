@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.61.83" id="indexPageDef"
+                Package="gr.dim.stas.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="CountriesView1" RangeSize="25" DataControl="HRModuleDataControl" id="CountriesView1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="CountriesView1Iterator" id="CountriesView1">
+      <nodeDefinition DefName="gr.dim.stas.model.view.CountriesView" Name="CountriesView10">
+        <AttrNames>
+          <Item Value="CountryId"/>
+          <Item Value="CountryName"/>
+          <Item Value="RegionId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <methodAction id="createRow" InstanceName="data.HRModuleDataControl.dataProvider" DataControl="HRModuleDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod" MethodName="createRow" IsViewObjectMethod="false">
+      <NamedData NDName="lineValues" NDType="java.lang.String[]"/>
+    </methodAction>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="HRModuleDataControl"/>
+    <action IterBinding="CountriesView1Iterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="HRModuleDataControl"/>
+  </bindings>
+</pageDefinition>

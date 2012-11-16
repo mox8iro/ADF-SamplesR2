@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="HRModule"
+  Version="11.1.2.61.83"
+  ClearCacheOnRollback="true"
+  ComponentClass="gr.dim.stas.model.appmodule.HRModuleImpl"
+  ComponentInterface="gr.dim.stas.model.appmodule.common.HRModule"
+  ClientProxyName="gr.dim.stas.model.appmodule.client.HRModuleClient">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <ViewUsage
+    Name="CountriesView1"
+    ViewObjectName="gr.dim.stas.model.view.CountriesView"/>
+  <ClientInterface>
+    <Method
+      Name="createRow"
+      MethodName="createRow">
+      <Return
+        Type="void"/>
+      <Parameter
+        Name="lineValues"
+        Type="java.lang.String[]"/>
+    </Method>
+  </ClientInterface>
+</AppModule>
