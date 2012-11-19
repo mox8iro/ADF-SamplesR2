@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="LocCIdFkAssoc"
+  Version="11.1.2.61.83">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="Countries"
+    Cardinality="1"
+    Source="true"
+    Owner="gr.dim.stas.model.entity.Countries">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="Countries"/>
+      <Attr Name="_foreignKey" Value="gr.dim.stas.model.entity.Countries.CountryCIdPk"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="gr.dim.stas.model.entity.Countries.CountryId"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="Locations"
+    Cardinality="-1"
+    Owner="gr.dim.stas.model.entity.Locations">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="Locations"/>
+      <Attr Name="_foreignKey" Value="gr.dim.stas.model.entity.Locations.LocCIdFk"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="gr.dim.stas.model.entity.Locations.CountryId"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>

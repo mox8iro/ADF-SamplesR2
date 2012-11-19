@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.61.83" id="indexPageDef"
+                Package="gr.dim.stas.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="CountriesView1" RangeSize="25" DataControl="HRModuleDataControl" id="CountriesView1Iterator"
+              ChangeEventPolicy="ppr"/>
+    <iterator Binds="LocationsView1" RangeSize="25" DataControl="HRModuleDataControl" id="LocationsView1Iterator"
+              ChangeEventPolicy="ppr"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="CountriesView1Iterator" id="CountryId">
+      <AttrNames>
+        <Item Value="CountryId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CountriesView1Iterator" id="CountryName">
+      <AttrNames>
+        <Item Value="CountryName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CountriesView1Iterator" id="RegionId">
+      <AttrNames>
+        <Item Value="RegionId"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="CountriesView1Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="CountriesView1Iterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="CountriesView1Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="CountriesView1Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <tree IterBinding="LocationsView1Iterator" id="LocationsView1">
+      <nodeDefinition DefName="com.edba.graphs.model.view.LocationsView" Name="LocationsView10">
+        <AttrNames>
+          <Item Value="LocationId"/>
+          <Item Value="StreetAddress"/>
+          <Item Value="PostalCode"/>
+          <Item Value="City"/>
+          <Item Value="StateProvince"/>
+          <Item Value="CountryId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="HRModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="HRModuleDataControl"/>
+    <action IterBinding="LocationsView1Iterator" id="CreateInsert" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="LocationsView1Iterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+  </bindings>
+</pageDefinition>

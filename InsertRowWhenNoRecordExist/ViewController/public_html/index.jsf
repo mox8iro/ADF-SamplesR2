@@ -1,0 +1,173 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="index.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:pageTemplate viewId="/oracle/templates/threeColumnTemplate.jspx" id="pt1">
+                <f:facet name="center">
+                    <af:panelGroupLayout id="g1">
+                        <af:panelFormLayout id="pfl1">
+                            <af:inputText value="#{bindings.CountryId.inputValue}"
+                                          label="#{bindings.CountryId.hints.label}"
+                                          required="#{bindings.CountryId.hints.mandatory}"
+                                          columns="#{bindings.CountryId.hints.displayWidth}"
+                                          maximumLength="#{bindings.CountryId.hints.precision}"
+                                          shortDesc="#{bindings.CountryId.hints.tooltip}" id="it1">
+                                <f:validator binding="#{bindings.CountryId.validator}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.CountryName.inputValue}"
+                                          label="#{bindings.CountryName.hints.label}"
+                                          required="#{bindings.CountryName.hints.mandatory}"
+                                          columns="#{bindings.CountryName.hints.displayWidth}"
+                                          maximumLength="#{bindings.CountryName.hints.precision}"
+                                          shortDesc="#{bindings.CountryName.hints.tooltip}" id="it2">
+                                <f:validator binding="#{bindings.CountryName.validator}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.RegionId.inputValue}"
+                                          label="#{bindings.RegionId.hints.label}"
+                                          required="#{bindings.RegionId.hints.mandatory}"
+                                          columns="#{bindings.RegionId.hints.displayWidth}"
+                                          maximumLength="#{bindings.RegionId.hints.precision}"
+                                          shortDesc="#{bindings.RegionId.hints.tooltip}" id="it3">
+                                <f:validator binding="#{bindings.RegionId.validator}"/>
+                            </af:inputText>
+                            <f:facet name="footer">
+                                <af:panelGroupLayout layout="vertical" id="pgl1">
+                                    <af:panelGroupLayout layout="horizontal" id="pgl2">
+                                        <f:facet name="separator">
+                                            <af:spacer width="10" height="1" id="s1"/>
+                                        </f:facet>
+                                        <af:commandButton actionListener="#{bindings.First.execute}" text="First"
+                                                          disabled="#{!bindings.First.enabled}" partialSubmit="true"
+                                                          id="cb1"/>
+                                        <af:commandButton actionListener="#{bindings.Previous.execute}" text="Previous"
+                                                          disabled="#{!bindings.Previous.enabled}" partialSubmit="true"
+                                                          id="cb2"/>
+                                        <af:commandButton actionListener="#{bindings.Next.execute}" text="Next"
+                                                          disabled="#{!bindings.Next.enabled}" partialSubmit="true"
+                                                          id="cb3"/>
+                                        <af:commandButton actionListener="#{bindings.Last.execute}" text="Last"
+                                                          disabled="#{!bindings.Last.enabled}" partialSubmit="true"
+                                                          id="cb4"/>
+                                    </af:panelGroupLayout>
+                                    <af:commandButton text="Submit" id="cb5"/>
+                                    <af:commandButton actionListener="#{bindings.Commit.execute}" text="Commit" id="cb6"/>
+                                    <af:commandButton actionListener="#{bindings.Rollback.execute}" text="Rollback" immediate="true"
+                                                      id="cb7">
+                                        <af:resetActionListener/>
+                                    </af:commandButton>
+                                </af:panelGroupLayout>
+                            </f:facet>
+                        </af:panelFormLayout>
+                        <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+                            <f:facet name="menus"/>
+                            <f:facet name="toolbar">
+                                <af:toolbar id="t2">
+                                    <af:commandToolbarButton actionListener="#{bindings.Delete.execute}" text="Delete"
+                                                             disabled="#{!bindings.Delete.enabled}" id="ctb2"/>
+                                    <af:commandToolbarButton actionListener="#{bindings.CreateInsert.execute}"
+                                                             text="CreateInsert"
+                                                             disabled="#{!bindings.CreateInsert.enabled}" id="ctb1"/>
+                                </af:toolbar>
+                            </f:facet>
+                            <f:facet name="statusbar"/>
+                            <af:table value="#{bindings.LocationsView1.collectionModel}" var="row"
+                                      rows="#{bindings.LocationsView1.rangeSize}"
+                                      emptyText="#{bindings.LocationsView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                      fetchSize="#{bindings.LocationsView1.rangeSize}" rowBandingInterval="0"
+                                      selectedRowKeys="#{bindings.LocationsView1.collectionModel.selectedRow}"
+                                      selectionListener="#{bindings.LocationsView1.collectionModel.makeCurrent}"
+                                      rowSelection="single" id="t1" partialTriggers="::ctb1 ::ctb2">
+                                <af:column sortProperty="#{bindings.LocationsView1.hints.LocationId.name}"
+                                           sortable="false"
+                                           headerText="#{bindings.LocationsView1.hints.LocationId.label}" id="c1">
+                                    <af:inputText value="#{row.bindings.LocationId.inputValue}"
+                                                  label="#{bindings.LocationsView1.hints.LocationId.label}"
+                                                  required="#{bindings.LocationsView1.hints.LocationId.mandatory}"
+                                                  columns="#{bindings.LocationsView1.hints.LocationId.displayWidth}"
+                                                  maximumLength="#{bindings.LocationsView1.hints.LocationId.precision}"
+                                                  shortDesc="#{bindings.LocationsView1.hints.LocationId.tooltip}"
+                                                  id="it4">
+                                        <f:validator binding="#{row.bindings.LocationId.validator}"/>
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.LocationsView1.hints.LocationId.format}"/>
+                                    </af:inputText>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.LocationsView1.hints.StreetAddress.name}"
+                                           sortable="false"
+                                           headerText="#{bindings.LocationsView1.hints.StreetAddress.label}" id="c2">
+                                    <af:inputText value="#{row.bindings.StreetAddress.inputValue}"
+                                                  label="#{bindings.LocationsView1.hints.StreetAddress.label}"
+                                                  required="#{bindings.LocationsView1.hints.StreetAddress.mandatory}"
+                                                  columns="#{bindings.LocationsView1.hints.StreetAddress.displayWidth}"
+                                                  maximumLength="#{bindings.LocationsView1.hints.StreetAddress.precision}"
+                                                  shortDesc="#{bindings.LocationsView1.hints.StreetAddress.tooltip}"
+                                                  id="it5">
+                                        <f:validator binding="#{row.bindings.StreetAddress.validator}"/>
+                                    </af:inputText>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.LocationsView1.hints.PostalCode.name}"
+                                           sortable="false"
+                                           headerText="#{bindings.LocationsView1.hints.PostalCode.label}" id="c3">
+                                    <af:inputText value="#{row.bindings.PostalCode.inputValue}"
+                                                  label="#{bindings.LocationsView1.hints.PostalCode.label}"
+                                                  required="#{bindings.LocationsView1.hints.PostalCode.mandatory}"
+                                                  columns="#{bindings.LocationsView1.hints.PostalCode.displayWidth}"
+                                                  maximumLength="#{bindings.LocationsView1.hints.PostalCode.precision}"
+                                                  shortDesc="#{bindings.LocationsView1.hints.PostalCode.tooltip}"
+                                                  id="it6">
+                                        <f:validator binding="#{row.bindings.PostalCode.validator}"/>
+                                    </af:inputText>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.LocationsView1.hints.City.name}" sortable="false"
+                                           headerText="#{bindings.LocationsView1.hints.City.label}" id="c4">
+                                    <af:inputText value="#{row.bindings.City.inputValue}"
+                                                  label="#{bindings.LocationsView1.hints.City.label}"
+                                                  required="#{bindings.LocationsView1.hints.City.mandatory}"
+                                                  columns="#{bindings.LocationsView1.hints.City.displayWidth}"
+                                                  maximumLength="#{bindings.LocationsView1.hints.City.precision}"
+                                                  shortDesc="#{bindings.LocationsView1.hints.City.tooltip}" id="it7">
+                                        <f:validator binding="#{row.bindings.City.validator}"/>
+                                    </af:inputText>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.LocationsView1.hints.StateProvince.name}"
+                                           sortable="false"
+                                           headerText="#{bindings.LocationsView1.hints.StateProvince.label}" id="c5">
+                                    <af:inputText value="#{row.bindings.StateProvince.inputValue}"
+                                                  label="#{bindings.LocationsView1.hints.StateProvince.label}"
+                                                  required="#{bindings.LocationsView1.hints.StateProvince.mandatory}"
+                                                  columns="#{bindings.LocationsView1.hints.StateProvince.displayWidth}"
+                                                  maximumLength="#{bindings.LocationsView1.hints.StateProvince.precision}"
+                                                  shortDesc="#{bindings.LocationsView1.hints.StateProvince.tooltip}"
+                                                  id="it8">
+                                        <f:validator binding="#{row.bindings.StateProvince.validator}"/>
+                                    </af:inputText>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.LocationsView1.hints.CountryId.name}"
+                                           sortable="false"
+                                           headerText="#{bindings.LocationsView1.hints.CountryId.label}" id="c6">
+                                    <af:inputText value="#{row.bindings.CountryId.inputValue}"
+                                                  label="#{bindings.LocationsView1.hints.CountryId.label}"
+                                                  required="#{bindings.LocationsView1.hints.CountryId.mandatory}"
+                                                  columns="#{bindings.LocationsView1.hints.CountryId.displayWidth}"
+                                                  maximumLength="#{bindings.LocationsView1.hints.CountryId.precision}"
+                                                  shortDesc="#{bindings.LocationsView1.hints.CountryId.tooltip}"
+                                                  id="it9">
+                                        <f:validator binding="#{row.bindings.CountryId.validator}"/>
+                                    </af:inputText>
+                                </af:column>
+                            </af:table>
+                        </af:panelCollection>
+                    </af:panelGroupLayout>
+                </f:facet>
+                <f:facet name="header"/>
+                <f:facet name="end"/>
+                <f:facet name="start"/>
+                <f:facet name="branding"/>
+                <f:facet name="copyright"/>
+                <f:facet name="status"/>
+            </af:pageTemplate>
+        </af:form>
+    </af:document>
+</f:view>
